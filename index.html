@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Latihan soal uji sertifikasi PPKA (Pengatur Perjalanan Kereta Api) – 50 soal acak, timer 70 menit, review jawaban lengkap.">
+    <title>Latihan Uji Sertifikasi PPKA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="quiz-container">
+
+        <!-- ── Login Section ── -->
+        <div id="login-section" class="section">
+            <div class="header">
+                <div class="login-logo">
+                    <img src="kai_logo.png" alt="Logo KAI" class="logo-kai">
+                </div>
+                <h1>Latihan Uji Sertifikasi PPKA</h1>
+                <p class="header-subtitle">Pengatur Perjalanan Kereta Api</p>
+                <div class="header-badge">📋 50 Soal &nbsp;|&nbsp; ⏱ 70 Menit &nbsp;|&nbsp; 🔀 Acak</div>
+            </div>
+            <div class="divider"></div>
+            <div class="form-section">
+                <div class="form-group">
+                    <label for="participant-name">Nama Peserta</label>
+                    <div class="input-wrap">
+                        <span class="input-icon">👤</span>
+                        <input type="text" id="participant-name" placeholder="Masukkan nama lengkap Anda" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="participant-nipp">NIPP</label>
+                    <div class="input-wrap">
+                        <span class="input-icon">🪪</span>
+                        <input type="text" id="participant-nipp" placeholder="Masukkan NIPP Anda" required>
+                    </div>
+                </div>
+                <button id="start-btn" class="btn-primary">🚀 &nbsp;Mulai Kuis</button>
+            </div>
+            <p class="created-by">Created by <strong>Mardi Jayadi</strong> (65084)</p>
+        </div>
+
+        <!-- ── Quiz Section ── -->
+        <div id="quiz-section" class="section hidden">
+            <div class="quiz-header">
+                <div class="top-bar">
+                    <div class="participant-badge">👤 <span id="display-name"></span></div>
+                    <div id="timer" class="timer">⏱ 70:00</div>
+                    <div id="progress-text" class="progress-text">1 / 50</div>
+                </div>
+                <div class="progress-bar-wrap">
+                    <div id="progress-bar" class="progress-bar"></div>
+                </div>
+                <h2 id="question">Pertanyaan Teks</h2>
+                <ul>
+                    <li>
+                        <input type="radio" name="answer" id="opt-a" class="answer">
+                        <label for="opt-a"><span class="option-letter">A</span><span id="a_text">Jawaban A</span></label>
+                    </li>
+                    <li>
+                        <input type="radio" name="answer" id="opt-b" class="answer">
+                        <label for="opt-b"><span class="option-letter">B</span><span id="b_text">Jawaban B</span></label>
+                    </li>
+                    <li>
+                        <input type="radio" name="answer" id="opt-c" class="answer">
+                        <label for="opt-c"><span class="option-letter">C</span><span id="c_text">Jawaban C</span></label>
+                    </li>
+                    <li>
+                        <input type="radio" name="answer" id="opt-d" class="answer">
+                        <label for="opt-d"><span class="option-letter">D</span><span id="d_text">Jawaban D</span></label>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Navigation grid -->
+            <div class="nav-panel-wrap">
+                <div class="nav-panel-header">
+                    <span class="nav-panel-title">Navigasi Soal</span>
+                    <div class="nav-stats">
+                        <span class="stat-answered" id="stat-answered">✓ 0 terjawab</span>
+                        <span class="stat-unanswered" id="stat-unanswered">⚠ 50 belum</span>
+                    </div>
+                </div>
+                <div class="nav-grid" id="nav-grid"></div>
+            </div>
+
+            <!-- Skip button -->
+            <div class="btn-skip-wrap">
+                <button class="btn-skip" id="skip-btn">⏭ Lewati soal ini (tandai nanti)</button>
+            </div>
+
+            <!-- Prev / Next -->
+            <div class="btn-group">
+                <button id="back-btn" class="btn-nav-back" disabled>← Kembali</button>
+                <button id="submit">Jawab →</button>
+            </div>
+        </div>
+
+        <!-- ── Result Section ── -->
+        <div id="result-section" class="section hidden">
+            <!-- populated by JS -->
+        </div>
+
+        <!-- ── Review Section ── -->
+        <div id="review-section" class="section hidden">
+            <!-- populated by JS -->
+        </div>
+    </div>
+
+    <!-- ── Confirm Modal ── -->
+    <div id="confirm-modal" class="modal-overlay hidden">
+        <div class="modal-box">
+            <div class="modal-icon">🏁</div>
+            <h3>Selesaikan Kuis?</h3>
+            <p>Pastikan semua soal sudah dijawab sebelum mengumpulkan.</p>
+            <div class="modal-stats">
+                <div class="modal-stat">
+                    <span id="modal-answered">0</span>
+                    <span>Terjawab</span>
+                </div>
+                <div class="modal-stat">
+                    <span id="modal-skipped">0</span>
+                    <span>Dilewati</span>
+                </div>
+                <div class="modal-stat">
+                    <span id="modal-total">50</span>
+                    <span>Total</span>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="modal-btn-cancel" id="modal-cancel">✏️ Kembali</button>
+                <button class="modal-btn-confirm" id="modal-confirm">✅ Kumpulkan</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
